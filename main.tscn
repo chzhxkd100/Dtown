@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dj2nih8syjb1d"]
+
+[ext_resource type="Script" uid="uid://bheni3wq7m6bn" path="res://Main.cs" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dsue6jh1rpplr" path="res://Shared/map.tscn" id="2_0xm2m"]
+
+[node name="Main" type="Node2D" unique_id=1092797685]
+script = ExtResource("1_ig7tw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1256536122]
+
+[node name="JoinButton" type="Button" parent="CanvasLayer" unique_id=1489145785]
+anchors_preset = -1
+offset_left = 330.0
+offset_top = 337.0
+offset_right = 402.0
+offset_bottom = 368.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "접속하기"
+
+[node name="HostButton" type="Button" parent="CanvasLayer" unique_id=601432557]
+offset_left = 329.0
+offset_top = 285.0
+offset_right = 401.0
+offset_bottom = 316.0
+text = "서버열기"
+
+[node name="Players" type="Node2D" parent="." unique_id=1850540721]
+position = Vector2(219, 206)
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1556577985]
+_spawnable_scenes = PackedStringArray("uid://dglumykgc02i7")
+spawn_path = NodePath("../Players")
+
+[node name="Map" parent="." unique_id=860896128 instance=ExtResource("2_0xm2m")]
