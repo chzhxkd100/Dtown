@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cupg7rxqtrjq4" path="res://assets/floor_tiles_02_1k.gltf/textures/floor_tiles_02_diff_1k.jpg" id="1_x135f"]
 [ext_resource type="Texture2D" uid="uid://3pg7xhljknya" path="res://assets/floor_tiles_02_1k.gltf/textures/floor_tiles_02_nor_gl_1k.jpg" id="2_rkvpa"]
 [ext_resource type="Texture2D" uid="uid://bj37x7hud4uok" path="res://assets/floor_tiles_02_1k.gltf/textures/floor_tiles_02_rough_1k.jpg" id="3_eqsgk"]
+[ext_resource type="PackedScene" uid="uid://c6xt31jnyw8ce" path="res://Map/StartRoom/wall_light.tscn" id="4_rkvpa"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x135f"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -15,7 +16,6 @@ sky_material = SubResource("ProceduralSkyMaterial_x135f")
 background_mode = 1
 sky = SubResource("Sky_rkvpa")
 tonemap_mode = 2
-glow_enabled = true
 fog_density = 0.05
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0jcho"]
@@ -68,14 +68,6 @@ mesh = SubResource("PlaneMesh_pb15w")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor2/StaticBody3D" unique_id=1811173128]
 shape = SubResource("ConcavePolygonShape3D_0jcho")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=538469181]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-light_color = Color(1, 0.85490197, 0.7254902, 1)
-shadow_enabled = true
-distance_fade_enabled = true
-omni_range = 7.7511134
-omni_attenuation = 2.0
-
 [node name="Wall_North" type="MeshInstance3D" parent="." unique_id=640827271]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -5)
 mesh = SubResource("BoxMesh_lsble")
@@ -120,3 +112,6 @@ mesh = SubResource("BoxMesh_lsble")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wall_North5/StaticBody3D" unique_id=632797905]
 shape = SubResource("ConcavePolygonShape3D_a1a3f")
+
+[node name="WallLight" parent="." unique_id=992261492 instance=ExtResource("4_rkvpa")]
+transform = Transform3D(-0.0060038567, 0, 0.999982, 0, 1, 0, -0.999982, 0, -0.0060038567, -4.9059687, 2.7021165, -0.9460373)

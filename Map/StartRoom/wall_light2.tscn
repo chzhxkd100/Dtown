@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c0tlrahapxfvg"]
+
+[ext_resource type="PackedScene" uid="uid://cpnaev0vvtjr7" path="res://assets/industrial_wall_sconce_1k.gltf/industrial_wall_sconce_1k.gltf" id="1_tskgy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kpco0"]
+transparency = 1
+emission_enabled = true
+emission = Color(0.56196654, 0.4055215, 0.18878672, 1)
+emission_energy_multiplier = 2.93
+
+[node name="industrial_wall_sconce_1k" unique_id=656373559 instance=ExtResource("1_tskgy")]
+
+[node name="industrial_wall_sconce" parent="." index="0" unique_id=515617293]
+surface_material_override/1 = SubResource("StandardMaterial3D_kpco0")

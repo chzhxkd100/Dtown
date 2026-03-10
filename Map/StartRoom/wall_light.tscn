@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c6xt31jnyw8ce"]
+
+[ext_resource type="PackedScene" uid="uid://c0tlrahapxfvg" path="res://Map/StartRoom/wall_light2.tscn" id="1_8fw2a"]
+
+[node name="WallLight" type="Node3D" unique_id=992261492]
+
+[node name="ScaleMultiflier" type="Node3D" parent="." unique_id=381599758]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="ScaleMultiflier" unique_id=1024695660]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.0020031035, 0.059568867, 0.19241989)
+light_color = Color(0.73456985, 0.5913467, 0.29344547, 1)
+shadow_enabled = true
+shadow_opacity = 0.29
+omni_range = 15.836
+omni_attenuation = 0.208
+
+[node name="industrial_wall_sconce_1k" parent="ScaleMultiflier" unique_id=656373559 instance=ExtResource("1_8fw2a")]
