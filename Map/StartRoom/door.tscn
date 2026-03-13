@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://c4twirxepmtv4"]
+
+[ext_resource type="Script" uid="uid://vvytqjl4i0ih" path="res://Map/StartRoom/Door.cs" id="1_h8lx7"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6rrdk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h8lx7"]
+size = Vector3(0.5324707, 1, 0.1381836)
+
+[sub_resource type="Animation" id="Animation_h8lx7"]
+resource_name = "Close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatableBody3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_066it"]
+resource_name = "Open"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatableBody3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5707964, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xk816"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatableBody3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xk816"]
+_data = {
+&"Close": SubResource("Animation_h8lx7"),
+&"Open": SubResource("Animation_066it"),
+&"RESET": SubResource("Animation_xk816")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_066it"]
+size = Vector3(0.57199454, 1, 0.30454636)
+
+[node name="Door" type="Node3D" unique_id=1893550913 node_paths=PackedStringArray("_animPlayer")]
+script = ExtResource("1_h8lx7")
+_animPlayer = NodePath("AnimationPlayer")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="." unique_id=1495651594]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AnimatableBody3D" unique_id=384727358]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.1, 0.25, 0, 0)
+mesh = SubResource("BoxMesh_6rrdk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D" unique_id=625343540]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24401855, 0, -0.0068359375)
+shape = SubResource("BoxShape3D_h8lx7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1737955807]
+libraries/ = SubResource("AnimationLibrary_xk816")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=720183826]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1355302762]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.230111, 0.2494396, 0, -0.021528244)
+shape = SubResource("BoxShape3D_066it")
+
+[connection signal="body_entered" from="Area3D" to="." method="OnInteractionAreaBodyEntered"]
+[connection signal="body_exited" from="Area3D" to="." method="OnInteractionAreaBodyExited"]

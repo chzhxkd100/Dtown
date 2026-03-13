@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://3pg7xhljknya" path="res://assets/floor_tiles_02_1k.gltf/textures/floor_tiles_02_nor_gl_1k.jpg" id="2_rkvpa"]
 [ext_resource type="Texture2D" uid="uid://bj37x7hud4uok" path="res://assets/floor_tiles_02_1k.gltf/textures/floor_tiles_02_rough_1k.jpg" id="3_eqsgk"]
 [ext_resource type="PackedScene" uid="uid://c6xt31jnyw8ce" path="res://Map/StartRoom/wall_light.tscn" id="4_rkvpa"]
+[ext_resource type="PackedScene" uid="uid://c4twirxepmtv4" path="res://Map/StartRoom/door.tscn" id="5_wnx3c"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x135f"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -115,3 +116,6 @@ shape = SubResource("ConcavePolygonShape3D_a1a3f")
 
 [node name="WallLight" parent="." unique_id=992261492 instance=ExtResource("4_rkvpa")]
 transform = Transform3D(-0.0060038567, 0, 0.999982, 0, 1, 0, -0.999982, 0, -0.0060038567, -4.9059687, 2.7021165, -0.9460373)
+
+[node name="Door" parent="." unique_id=1893550913 instance=ExtResource("5_wnx3c")]
+transform = Transform3D(1, 0, 0, 0, 3.004, 0, 0, 0, 3.1488411, -4.739578, 1.6862757, 2.6341996)
